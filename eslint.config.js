@@ -7,6 +7,15 @@ import eslintConfigPrettier from 'eslint-config-prettier';
 export default [
   { languageOptions: { globals: globals.node } },
   {
+    files: ['src/**/*.js'],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.browser,
+      },
+    },
+  },
+  {
     ...pluginJs.configs.recommended,
     ...playwright.configs['flat/recommended'],
     rules: {
